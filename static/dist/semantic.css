@@ -5120,6 +5120,10 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.button.signup {
+  margin-left: '0.5em';
+}
 /*!
  * # Semantic UI 2.3.3 - Container
  * http://github.com/semantic-org/semantic-ui/
@@ -5281,6 +5285,22 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.container.parent {
+  width: 100% !important;
+}
+
+.ui.container.parenthome {
+  width: 100%;
+}
+
+.ui.text.container.getstarted {
+  line-height: 15;
+}
+
+.ui.container.embedVideo {
+  margin-top: 8em;
+}
 /*!
  * # Semantic UI 2.3.3 - Divider
  * http://github.com/semantic-org/semantic-ui/
@@ -5548,6 +5568,11 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.horizontal.divider.header {
+  padding: 3em 0em;
+  text-transform: uppercase;
+}
 /*!
  * # Semantic UI 2.3.3 - Flag
  * http://github.com/semantic-org/semantic-ui/
@@ -7651,6 +7676,19 @@ a.ui.inverted.grey.header:hover {
 /*******************************
          Site Overrides
 *******************************/
+
+h1.ui.inverted.header.homebig {
+  font-size: 4em;
+  font-weight: 500;
+  margin-bottom: 0px;
+  margin-top: 3em;
+}
+
+h2.ui.inverted.header.homemedium {
+  font-size: 1.7em;
+  font-weight: 500;
+  margin-top: 1.5em;
+}
 /*!
  * # Semantic UI 2.3.3 - Icon
  * http://github.com/semantic-org/semantic-ui/
@@ -18960,6 +18998,19 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.vertical.segment.homecontent:first-child {
+  padding: 8em 0em 2em;
+  border-bottom: none;
+}
+
+.ui.vertical.segment.purpose {
+  padding-bottom: 6em;
+}
+
+.ui.inverted.segment.getstarted {
+  min-height: 100vh;
+}
 /*!
  * # Semantic UI 2.3.3 - Step
  * http://github.com/semantic-org/semantic-ui/
@@ -23269,6 +23320,10 @@ ol.ui.horizontal.list li:before,
 /*******************************
          Site Overrides
 *******************************/
+
+.ui.grid.container.whatis {
+  width: 95% !important;
+}
 /*
  * # Semantic - Menu
  * http://github.com/semantic-org/semantic-ui/

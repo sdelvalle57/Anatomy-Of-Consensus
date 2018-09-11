@@ -6,10 +6,10 @@ const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__'
 
 function getOrCreateStore (initialState) {
   // Always make a new store if server, otherwise state is shared between requests
-  console.log('initialState', initialState)
+  
   if (isServer) {
     return initializeStore(initialState)
-  }
+  } 
 
   // Create store if unavailable on the client and set it on the window object
   if (!window[__NEXT_REDUX_STORE__]) {
@@ -32,11 +32,6 @@ export default (App) => {
       if (typeof App.getInitialProps === 'function') {
         appProps = await App.getInitialProps(appContext)
       }
-
-      console.log({
-        ...appProps,
-        initialReduxState: reduxStore.getState() 
-      })
 
       return {
         ...appProps,

@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import ReducerClock from './reducer_clock';
-import ReducerCounter from './reducer_counter';
-import ReducerActionBar from './reducer_action_bar';
+import ReducerFixedMenu from './reducer_fixed_menu';
+import ReducerGetStarted from './reducer_get_started';
+import ReducerLogin from './reducer_login';
+import ReducerUserPack from './reducer_user_pack';
 
 const rootReducer = combineReducers({
-    clock: ReducerClock,
-    counter: ReducerCounter,
-    actionBar: ReducerActionBar
+    fixedMenu: ReducerFixedMenu,
+    getStartedVisibility: ReducerGetStarted,
+    login: ReducerLogin,
+    userPacks: ReducerUserPack
 })
 
 export default rootReducer;

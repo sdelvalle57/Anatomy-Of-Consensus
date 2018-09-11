@@ -3836,3 +3836,6 @@
          Site Overrides
 *******************************/
 
+.ui.button.signup {
+  margin-left: '0.5em';
+}

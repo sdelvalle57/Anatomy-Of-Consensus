@@ -1,43 +1,107 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {startClock, serverRenderClock} from '../actions/action_clock';
-import Clock from '../components/clock';
-import Counter from '../components/counter';
-import SearchBar from '../containers/search_bar';
-import SearchBar2 from '../containers/search_bar2';
+import React, { Component } from 'react'
+import {Button, Container, Header, Icon, Segment, Visibility, Transition, Embed} from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import {showFixedMenu} from '../actions/action_fixed_menu';
+import {getStarted, showVideo} from '../actions/action_get_started';
+import {readUserPack} from '../actions/action_add_user_pack';
+import {getUser} from '../actions/action_login'
+import HomeMenu from '../containers/menu_home';
+import HomeAbout from '../components/about_home';
+import LoginModal from '../containers/login_modal';
+
 
 class Index extends Component {
-  static getInitialProps ({ reduxStore, req }) {
-    const isServer = !!req
-    reduxStore.dispatch(serverRenderClock(isServer))
+
+  static getInitialProps({reduxStore}) {
+    //reduxStore.dispatch(readUserPack());
+    
     return {}
   }
 
-  componentDidMount () {
-    const {dispatch} = this.props
-    this.timer = startClock(dispatch)
+  componentDidMount() {
+    const {dispatch} =this.props;
+    dispatch(getUser());
+    
   }
 
-  componentWillUnmount () {
-    clearInterval(this.timer)
+  hideFixedMenu = () => {
+    const {dispatch} = this.props;
+    dispatch(showFixedMenu(false));
+  } 
+
+  showFixedMenu = () => {
+    const {dispatch} = this.props;
+    dispatch(showFixedMenu(true));
+  } 
+
+  onGetStarterClick = () => {
+    const {dispatch} = this.props;
+    dispatch(getStarted());
+    setTimeout(() => {
+      dispatch(showVideo())
+    }, 500)
   }
 
-  render () {
-    const {clock} = this.props;
+  
+  render() {
+    const {getStartedVisibility} = this.props
     return (
-      <div>
-        <Clock lastUpdate={clock.lastUpdate} light={clock.light} />
-        <Counter />
-        <SearchBar />
-        <SearchBar2 />
-      </div>
-    );
+      <Container className = "parenthome">
+        <LoginModal />
+        <Visibility
+          once={false}
+          onBottomPassed={this.showFixedMenu}
+          onBottomPassedReverse={this.hideFixedMenu}>
+          <Segment
+            inverted
+            textAlign='center'
+            className='getstarted'>
+            <HomeMenu/>
+            <Transition 
+              visible={getStartedVisibility.visible}
+              animation='fade'
+              duration={500}>
+              <Container text className = 'getstarted'>
+                <Header className='homebig'
+                  as='h1' 
+                  content='Anatomy Of Consensus'
+                  inverted />
+                <Header className='homemedium'
+                  as='h2'
+                  content='"The best no fluff education system that teaches you the power of blockchain by using it."'
+                  inverted/>
+                <Button
+                  primary 
+                  size='huge' 
+                  onClick={this.onGetStarterClick} >
+                  Get Started
+                  <Icon name='right arrow' />
+                </Button>
+              </Container>
+            </Transition>
+            <Transition
+              visible={getStartedVisibility.showVideo}
+              animation='fade'
+              duration={500}>
+              <Container className='embedVideo'>
+                <Embed 
+                  active={getStartedVisibility.showVideo}
+                  id='h5Krh2ZmZkk'
+                  
+                  source='youtube'  />
+              </Container>
+            </Transition>
+          </Segment>
+        </Visibility>
+        <HomeAbout />
+      </Container>
+    )
   }
 }
 
-function mapStateToProps (state) {
-  const { clock } = state
-  return { clock }
+function mapStateToProps(state) {
+  const {getStartedVisibility} = state;
+  return {getStartedVisibility};
 }
 
-export default connect(mapStateToProps)(Index)
+export default connect(mapStateToProps)(Index);

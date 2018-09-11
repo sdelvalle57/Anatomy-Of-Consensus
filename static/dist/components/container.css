@@ -145,3 +145,15 @@
          Site Overrides
 *******************************/
 
+.ui.container.parent {
+  width: 100% !important;
+}
+.ui.container.parenthome {
+  width: 100%;
+}
+.ui.text.container.getstarted {
+  line-height: 15;
+}
+.ui.container.embedVideo {
+  margin-top: 8em;
+}
