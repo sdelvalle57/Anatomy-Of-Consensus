@@ -1,37 +1,22 @@
 import React, {Component} from 'react';
 import {Modal, Icon, Button, Header} from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import {closeModal} from '../actions/action_login';
-import {addStarterPack} from '../actions/action_add_user_pack'; 
-import {auth, googleProvider, facebookProvider, twitterProvider, githubProvider} from '../firebase';
+import {closeLoginModal, socialSignin} from '../actions/action_login';
+import {googleProvider, facebookProvider, githubProvider} from '../firebase';
+
 
 
 class LoginModal extends Component {
 
     closeModal = () => {
         const {dispatch} = this.props;
-        dispatch(addStarterPack("oeeSisas"))
-        dispatch(closeModal());
+        dispatch(closeLoginModal());
     }
     
-    loginWithGoogle = () => {
+    signin = (provider)  => {
+        const {dispatch} = this.props;
         this.closeModal();
-        auth.signInWithPopup(googleProvider);
-    }
-
-    loginWithFacebook = () => {
-        this.closeModal();
-        auth.signInWithPopup(facebookProvider);
-    }
-
-    loginWithGithub = () => {
-        this.closeModal();
-        auth.signInWithPopup(githubProvider);
-    }
-
-    loginWithTwitter = () => {
-        this.closeModal();
-        auth.signInWithPopup(twitterProvider);
+        dispatch(socialSignin(provider));
     }
 
 
@@ -42,17 +27,14 @@ class LoginModal extends Component {
                 <Header icon='sign-in' content='Log-in or Sign-up to your account' />
                 
                 <Modal.Actions>
-                    <Button color='google plus' onClick={this.loginWithGoogle}>
+                    <Button color='google plus' onClick={this.signin.bind(this, googleProvider)}>
                         <Icon name='google' /> Google 
                     </Button>
-                    <Button color='facebook' onClick={this.loginWithFacebook}>
+                    <Button color='facebook' onClick={this.signin.bind(this, facebookProvider)}>
                         <Icon name='facebook f' /> Facebook
                     </Button>
-                    <Button onClick={this.loginWithGithub} >
+                    <Button onClick={this.signin.bind(this, githubProvider)} >
                         <Icon name='github' /> Github
-                    </Button>
-                    <Button color='twitter' onClick={this.loginWithTwitter} >
-                        <Icon name='twitter' /> Twitter
                     </Button>
                 </Modal.Actions>
             </Modal>

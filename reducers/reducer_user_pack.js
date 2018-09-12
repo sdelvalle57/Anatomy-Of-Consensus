@@ -1,28 +1,21 @@
-import {STARTER_PACK, ETH_LOAN_PACK, READ_USER} from '../actions/types';
+import {ADD_PACKS, REMOVE_PACKS} from '../actions/types';
 
 const initalState = {
-    blockchainStarerPack: false,
+    blockchainStarterPack: false,
     ethLoan: false,
-    users: {}
 }
 
 export default function(state = initalState, action) {
     switch(action.type) {
-        case READ_USER:
+        case ADD_PACKS:
             return {
                 ...state,
-                users: action.payload
+                blockchainStarterPack: !!action.payload.starterPack,
+                ethLoan: !!action.payload.ethLoan
             }
-        case STARTER_PACK:
-            return {
-                ...state,
-                blockchainStarerPack: true
-            }
-        case ETH_LOAN_PACK:
-            return {
-                ...state,
-                ethLoan: true
-            }
+        case REMOVE_PACKS:
+            return initalState;
+        
         default: return state;
     }
 }

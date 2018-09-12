@@ -1,27 +1,26 @@
-import {STARTER_PACK, ETH_LOAN_PACK, READ_USER} from './types';
+import {ADD_PACKS} from './types';
 import {database} from '../firebase';
 
-export const readUserPack = (email) => dispatch => {
+export const readUserPack = (uid) => dispatch => {    
     return database.on('value', snapshot => {
-         dispatch({
-            type: READ_USER,
-            payload: snapshot.val()
-        })
+        console.log("read_user", snapshot.val())
+        if(typeof snapshot.val()[uid] != 'undefined'){
+            dispatch({
+                type: ADD_PACKS,
+                payload: snapshot.val()[uid]
+            })
+        }
     })
 }
 
-export const addStarterPack = (email) => dispatch => {
-    database.push({
-        user: email,
-        blockchainStarterPack: true
+export const addStarterPack = (uid) => dispatch => {
+    database.child(uid).update({
+        starterPack: true
     })
-    return dispatch({type: STARTER_PACK});
 }
 
-export const addEthLoanPack = (email) => dispatch => {
-    database.push({
-        user: email,
+export const addEthLoanPack = (uid) => dispatch => {
+    database.child(uid).update({
         ethLoan: true
     })
-    return dispatch({type: ETH_LOAN_PACK});
 }

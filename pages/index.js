@@ -3,7 +3,6 @@ import {Button, Container, Header, Icon, Segment, Visibility, Transition, Embed}
 import { connect } from 'react-redux';
 import {showFixedMenu} from '../actions/action_fixed_menu';
 import {getStarted, showVideo} from '../actions/action_get_started';
-import {readUserPack} from '../actions/action_add_user_pack';
 import {getUser} from '../actions/action_login'
 import HomeMenu from '../containers/menu_home';
 import HomeAbout from '../components/about_home';
@@ -12,16 +11,9 @@ import LoginModal from '../containers/login_modal';
 
 class Index extends Component {
 
-  static getInitialProps({reduxStore}) {
-    //reduxStore.dispatch(readUserPack());
-    
-    return {}
-  }
-
   componentDidMount() {
-    const {dispatch} =this.props;
+    const {dispatch} = this.props;
     dispatch(getUser());
-    
   }
 
   hideFixedMenu = () => {
