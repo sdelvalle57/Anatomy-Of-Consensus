@@ -1,0 +1,7 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.grid.container.whatis {
+    width: 95% !important;
+}
