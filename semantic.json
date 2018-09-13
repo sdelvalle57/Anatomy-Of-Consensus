@@ -1,5 +1,5 @@
 {
-  "base": "static",
+  "base": "src/app/static",
   "paths": {
     "source": {
       "config": "src/theme.config",

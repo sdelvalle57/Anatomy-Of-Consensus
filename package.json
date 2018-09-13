@@ -2,17 +2,18 @@
   "name": "with-redux",
   "version": "1.0.0",
   "scripts": {
-    "test": "mocha",
-    "dev": "npm run build-semantic && next build && node server.js",
+    "dev": "next \"src/app/\"",
+    "serve": "NODE_ENV=production firebase serve",
     "dev_simple": "node server.js",
     "stage": "next build && NODE_ENV=production node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "build-semantic": "cd static && gulp build-css build-assets",
-    "watch-semantic": "cd static && npm run build-semantic && gulp watch"
+    "build-semantic": "cd src/app/static && gulp build-css build-assets",
+    "watch-semantic": "cd src/app/static && npm run build-semantic && gulp watch"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "dotenv": "^6.0.0",
     "firebase": "^5.4.2",
     "gulp": "^3.9.1",
     "next": "6.1.1",
