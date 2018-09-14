@@ -1,3 +1,9 @@
+module.exports = {
+  distDir: '../../dist/functions/next'
+}
+
+
+/*
 const webpack = require('webpack');
 
 require('dotenv').config({
@@ -16,3 +22,4 @@ module.exports = {
     return config;
   }
 };
+*/
