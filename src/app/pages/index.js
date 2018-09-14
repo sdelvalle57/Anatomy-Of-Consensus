@@ -15,6 +15,7 @@ class Index extends Component {
     //login
     //database
     //dispatch to redux
+    return {};
   }
 
   componentDidMount() {
