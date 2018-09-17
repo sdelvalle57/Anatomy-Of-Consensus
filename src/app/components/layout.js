@@ -12,7 +12,7 @@ class Layout extends Component {
                 <Head>
                     <link 
                         rel="stylesheet" 
-                        href="/static/dist/semantic.min.css"
+                        href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
                     />
                 </Head>
                 {this.props.children}
