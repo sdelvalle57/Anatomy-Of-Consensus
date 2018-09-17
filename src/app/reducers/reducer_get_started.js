@@ -1,8 +1,9 @@
-import {GET_STARTED, SHOW_VIDEO} from '../actions/types';
+import {GET_STARTED, SHOW_VIDEO, GET_STARTED_CLICKED} from '../actions/types';
 
 const initialState = {
     visible: true,
-    showVideo: false
+    showVideo: false,
+    clicked: false
 }
 
 export default function(state = initialState, action ) {
@@ -10,12 +11,20 @@ export default function(state = initialState, action ) {
         case GET_STARTED:
             return {
                 ...state,
-                visible: false
+                visible: false,
+                clicked: false
+            }
+        case GET_STARTED_CLICKED:
+            return {
+                ...state,
+                visible: true,
+                clicked: true
             }
         case SHOW_VIDEO:
             return {
                 ...state,
-                showVideo: true
+                showVideo: true,
+                clicked: false
             }
 
         default: return state;

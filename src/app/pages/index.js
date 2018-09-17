@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import {Button, Container, Header, Icon, Segment, Visibility, Transition, Embed} from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import {showFixedMenu} from '../actions/action_fixed_menu';
-import {getStarted, showVideo} from '../actions/action_get_started';
+import {getStarted, showVideo, getStarterClicked} from '../actions/action_get_started';
+import {openLoginModal} from '../actions/action_login';
+
 import {getUser} from '../actions/action_login'
 import HomeMenu from '../containers/menu_home';
 import HomeAbout from '../components/about_home';
@@ -23,6 +25,15 @@ class Index extends Component {
     dispatch(getUser());
   }
 
+  componentWillReceiveProps({dispatch, getStartedVisibility, login}) {
+    if(getStartedVisibility.clicked && !!login.user.uid) {
+      dispatch(getStarted());
+      setTimeout(() => {
+        dispatch(showVideo())
+      }, 500)
+    }
+  }
+
   hideFixedMenu = () => {
     const {dispatch} = this.props;
     dispatch(showFixedMenu(false));
@@ -34,11 +45,16 @@ class Index extends Component {
   } 
 
   onGetStarterClick = () => {
-    const {dispatch} = this.props;
-    dispatch(getStarted());
-    setTimeout(() => {
-      dispatch(showVideo())
-    }, 500)
+    const {dispatch, login} = this.props;
+    if(!!login.user.uid) {
+      dispatch(getStarted());
+      setTimeout(() => {
+        dispatch(showVideo())
+      }, 500)
+    } else if(!login.loading) {
+      dispatch(getStarterClicked())
+      dispatch(openLoginModal());
+    }
   }
 
   
@@ -99,8 +115,8 @@ class Index extends Component {
 }
 
 function mapStateToProps(state) {
-  const {getStartedVisibility} = state;
-  return {getStartedVisibility};
+  const {getStartedVisibility, login} = state;
+  return {getStartedVisibility, login};
 }
 
 export default connect(mapStateToProps)(Index);

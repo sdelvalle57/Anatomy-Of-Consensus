@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Transition, Container, Divider, Grid, Header, Image, List, Segment} from 'semantic-ui-react';
+import {Button, Container, Divider, Grid, Header, Image, List, Segment} from 'semantic-ui-react';
+import { Link } from '../routes';
 
 class HomeAbout extends Component {
     render() {
@@ -27,6 +28,15 @@ class HomeAbout extends Component {
                 </Grid.Column>
                 <Grid.Column floated='right' width={6}>
                   <Image bordered rounded size='large' src='/static/images/white-image.png' />
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row>
+                <Grid.Column textAlign='center'>
+                  <Link route={`/form`}>
+                    <a>
+                      <Button size='huge'>Check it Out</Button>
+                    </a>
+                  </Link>
                 </Grid.Column>
               </Grid.Row>
               
@@ -58,6 +68,12 @@ class HomeAbout extends Component {
                 technology where you are empowered to interact with the 
                 ethereum blockchain global computing network.
               </p>
+
+              <Link route={`/form`}>
+                <a>
+                  <Button >Continue</Button>
+                </a>
+              </Link>
             
               <Divider
                 as='h1'
@@ -90,12 +106,18 @@ class HomeAbout extends Component {
               to learn more.
               </p>
 
+              <Link route={`/form`}>
+                <a>
+                  <Button >I Want To Know More</Button>
+                </a>
+              </Link>
+
             </Container>
             <Divider
                 as='h1'
                 className='header'
                 horizontal>
-                How do I get started?
+                How Do I Get Started?
             </Divider>
             <Container>
               <p>
@@ -114,6 +136,11 @@ class HomeAbout extends Component {
                 <li>And present you with a list of paths you can take to actively participate 
                   in this global infrastructure upgrade.</li>
               </ul>
+              <Link route={`/form`}>
+                <a>
+                  <Button >I'm Still Quite Interested</Button>
+                </a>
+              </Link>
             </Container>
           </Segment>
 
@@ -123,20 +150,33 @@ class HomeAbout extends Component {
                 <Grid.Row>
                   <Grid.Column width={3}>
                     <Header inverted as='h4' content='About' />
+                    
                     <List link inverted>
-                      <List.Item as='a'>Sitemap</List.Item>
-                      <List.Item as='a'>Contact Us</List.Item>
-                      <List.Item as='a'>Religious Ceremonies</List.Item>
-                      <List.Item as='a'>Gazebo Plans</List.Item>
+                      <List.Item>
+                        <Link route={`/about_us`}>
+                              About us
+                        </Link>
+                      </List.Item>
+                      <List.Item>
+                        <Link route={`/contact_us`}>
+                              Contact us
+                        </Link>
+                      </List.Item>
                     </List>
                   </Grid.Column>
                   <Grid.Column width={3}>
                     <Header inverted as='h4' content='Services' />
                     <List link inverted>
-                      <List.Item as='a'>Banana Pre-Order</List.Item>
-                      <List.Item as='a'>DNA FAQ</List.Item>
-                      <List.Item as='a'>How To Access</List.Item>
-                      <List.Item as='a'>Favorite X-Men</List.Item>
+                      <List.Item>
+                        <Link route={`/faq`}>
+                            FAQ
+                        </Link>
+                      </List.Item>
+                      <List.Item>
+                        <Link route={`/how_to_buy_ether`}>
+                              How To Buy Ether
+                        </Link>
+                      </List.Item>
                     </List>
                   </Grid.Column>
                   <Grid.Column width={7}>
