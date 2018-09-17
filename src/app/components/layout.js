@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { Container } from 'semantic-ui-react';
 import Favicon from 'react-favicon';
 
+
 class Layout extends Component {
 
     render() {

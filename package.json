@@ -32,6 +32,8 @@
     "react-scroll-into-view": "^1.3.2",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.2",
+    "redux-form": "^7.4.2",
+    "redux-form-website-template": "0.0.123",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.1.0",
     "semantic-ui-react": "^0.82.3"
