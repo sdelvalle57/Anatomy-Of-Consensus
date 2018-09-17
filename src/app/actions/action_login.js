@@ -1,4 +1,4 @@
-import {auth} from '../firebase';
+import {auth} from '../lib/firebase_config';
 import {OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, GET_USER_LOGIN, 
     USER_NOT_LOGGED, SIGN_IN, SIGN_OUT, REMOVE_PACKS} from './types';
 import {readUserPack} from './action_add_user_pack';

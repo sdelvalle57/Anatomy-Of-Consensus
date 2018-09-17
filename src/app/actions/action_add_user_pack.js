@@ -1,5 +1,5 @@
 import {ADD_PACKS} from './types';
-import {database} from '../firebase';
+import {database} from '../lib/firebase_config';
 
 export const readUserPack = (uid) => dispatch => {    
     return database.on('value', snapshot => {

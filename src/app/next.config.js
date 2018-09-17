@@ -1,5 +1,14 @@
+module.exports = {
+  distDir: '../../dist/functions/next'
+}
+
+
+/*
 const webpack = require('webpack');
-require('dotenv').config();
+
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env'
+});
 
 module.exports = {
   webpack: config => {
@@ -12,4 +21,5 @@ module.exports = {
 
     return config;
   }
-}
+};
+*/
