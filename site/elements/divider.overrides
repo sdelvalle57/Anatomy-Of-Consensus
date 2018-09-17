@@ -1,7 +1,0 @@
-/*******************************
-         Site Overrides
-*******************************/
-.ui.horizontal.divider.header {
-    padding: 3em 0em;
-    text-transform: uppercase
-}
