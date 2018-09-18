@@ -17,6 +17,7 @@
     "watch-semantic": "cd src/app/static && npm run build-semantic && gulp watch"
   },
   "dependencies": {
+    "@babel/runtime": "7.0.0-beta.55",
     "axios": "^0.18.0",
     "dotenv": "^6.0.0",
     "firebase": "^5.4.2",
