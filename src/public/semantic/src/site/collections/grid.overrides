@@ -1,0 +1,11 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.grid.container.whatis {
+    width: 95% !important;
+}
+
+.ui.grid > .row > .column.watermark {
+    text-align: center;
+}

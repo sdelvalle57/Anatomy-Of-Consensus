@@ -9,6 +9,7 @@ import {getUser} from '../actions/action_login'
 import HomeMenu from '../containers/menu_home';
 import HomeAbout from '../components/about_home';
 import LoginModal from '../containers/login_modal';
+import { Router } from '../routes';
 
 
 class Index extends Component {
@@ -45,6 +46,8 @@ class Index extends Component {
   } 
 
   onGetStarterClick = () => {
+    Router.pushRoute('/vision_page');
+    /*
     const {dispatch, login} = this.props;
     if(!!login.user.uid) {
       dispatch(getStarted());
@@ -55,6 +58,7 @@ class Index extends Component {
       dispatch(getStarterClicked())
       dispatch(openLoginModal());
     }
+    */
   }
 
   
@@ -72,18 +76,16 @@ class Index extends Component {
             textAlign='center'
             className='getstarted'>
             <HomeMenu/>
-            <Transition 
-              visible={getStartedVisibility.visible}
-              animation='fade'
-              duration={500}>
-              <Container text className = 'getstarted'>
+
+            <Container text className = 'getstarted'>
                 <Header className='homebig'
                   as='h1' 
-                  content='Anatomy Of Consensus'
+                  content='dCom Regional Development'
                   inverted />
                 <Header className='homemedium'
                   as='h2'
-                  content='"The best no fluff education system that teaches you the power of blockchain by using it."'
+                  content='"The best no fluff education system that teaches you how to use the 
+                  blockchain by using it to create your regional Internet Service Provider."'
                   inverted/>
                 <Button
                   primary 
@@ -93,22 +95,11 @@ class Index extends Component {
                   <Icon name='right arrow' />
                 </Button>
               </Container>
-            </Transition>
-            <Transition
-              visible={getStartedVisibility.showVideo}
-              animation='fade'
-              duration={500}>
-              <Container className='embedVideo'>
-                <Embed 
-                  active={getStartedVisibility.showVideo}
-                  id='h5Krh2ZmZkk'
-                  
-                  source='youtube'  />
-              </Container>
-            </Transition>
+
+        
           </Segment>
         </Visibility>
-        <HomeAbout />
+        
       </Container>
     )
   }

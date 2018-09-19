@@ -1,0 +1,10 @@
+/*******************************
+         Site Overrides
+*******************************/
+.ui.button.signup {
+    margin-left: '0.5em'
+}
+
+.ui.button.huge.primary.know_more {
+    margin-top: 3em;
+}

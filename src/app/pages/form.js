@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import { Values } from "redux-form-website-template";
 import ContactForm from "../containers/form";
 import { connect } from 'react-redux';
+import { Container } from "semantic-ui-react";
 
 
 class Form extends Component {
@@ -14,9 +15,10 @@ class Form extends Component {
     render() {
         return (
             <div style={{ padding: 15 }}>
-                <h2>Simple Form</h2>
-                <ContactForm onSubmit={this.submit} />
-                <Values form="data" />
+                <Container>
+                <div id="SOIDIV_ThomasMiller" data-so-page="ThomasMiller" data-height="550" data-style="border: 1px solid #d8d8d8; min-width: 290px; max-width: 900px;" data-psz="00"></div>
+<script type="text/javascript" src="https://cdn.scheduleonce.com/mergedjs/so.js"></script>
+                </Container>
             </div>
         )
     }

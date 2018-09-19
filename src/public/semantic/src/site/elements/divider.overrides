@@ -1,0 +1,11 @@
+/*******************************
+         Site Overrides
+*******************************/
+.ui.horizontal.divider.header {
+    padding: 3em 0em;
+    text-transform: uppercase
+}
+
+.ui.horizontal.divider > p {
+    font-size: 25px;
+}
