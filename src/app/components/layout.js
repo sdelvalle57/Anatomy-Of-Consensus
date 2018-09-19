@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Head from 'next/head'
 import { Container } from 'semantic-ui-react';
 import Favicon from 'react-favicon';
+import Footer from './footer';
+
 
 
 class Layout extends Component {
@@ -13,10 +15,12 @@ class Layout extends Component {
                 <Head>
                     <link 
                         rel="stylesheet" 
-                        href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"
+                        href="/static/dist/semantic.min.css"
                     />
                 </Head>
+                
                 {this.props.children}
+                <Footer />
             </Container>
         );
     }
