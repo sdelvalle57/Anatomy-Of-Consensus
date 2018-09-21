@@ -1,40 +1,37 @@
 import React, {Component} from 'react';
-import { Container, Visibility } from 'semantic-ui-react';
-import Menu from '../containers/menu_home';
+import { Container } from 'semantic-ui-react';
+
+import Menu from './menu';
 import Footer from '../components/footer';
+import LoginModal from './login_modal';
+import {connect} from 'react-redux';
+
+import { Router } from '../routes';
 
 
 class PageLayout extends Component {
 
-    hideFixedMenu = () => {
-        const {dispatch} = this.props;
-        dispatch(showFixedMenu(false));
-      } 
-    
-      showFixedMenu = () => {
-        const {dispatch} = this.props;
-        dispatch(showFixedMenu(true));
-      } 
+    componentWillReceiveProps({login}) {
+        if(!login.user.uid) {
+            Router.pushRoute('/');
+        }
+    }
 
     render() {
         return(
-            <Visibility
-                once={false}
-                onBottomPassed={this.showFixedMenu}
-                onBottomPassedReverse={this.hideFixedMenu}>
-                <Container className="parent">
-                    
-
-                    <Menu />
-                    
-
-                    {this.props.children}
-                    <Footer />
-                </Container>
-                
-            </Visibility>
+            <Container className="parent">
+                <LoginModal />
+                <Menu />
+                {this.props.children}
+                <Footer />
+            </Container>
         );
     }
 }
 
-export default PageLayout;
+function mapStateToProps(state) {
+    const {login} = state;
+    return {login};
+}
+
+export default connect(mapStateToProps)(PageLayout);

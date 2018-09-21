@@ -8,7 +8,7 @@ import {reducer as formReducer} from 'redux-form';
 
 const rootReducer = combineReducers({
     fixedMenu: ReducerFixedMenu,
-    getStartedVisibility: ReducerGetStarted,
+    getStarted: ReducerGetStarted,
     login: ReducerLogin,
     userPacks: ReducerUserPack,
     currentPage: ReducerCurrentPage,

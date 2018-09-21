@@ -1,19 +1,7 @@
-import {HOME_PAGE ,STARTER_PACK_PAGE, ETH_LOAN_PACK_PAGE} from './types';
 
-export const swithToHomePage = () => dispatch => {
+export const switchToPage = (page) => dispatch => {
+    console.log('page', page);
     return  dispatch({
-        type: HOME_PAGE
+        type: page
     })
 } 
-
-export const swithToStarterPackPage = () => dispatch => {
-    return  dispatch({
-        type: STARTER_PACK_PAGE
-    })
-}
-
-export const swithToETHLoanPackPage = () => dispatch => {
-    return  dispatch({
-        type: ETH_LOAN_PACK_PAGE
-    })
-}

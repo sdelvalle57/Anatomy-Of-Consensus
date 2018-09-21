@@ -1,13 +1,28 @@
 import React, {Component } from 'react';
-import { Menu, Container, Button } from 'semantic-ui-react';
+import { Menu, Container, Button, Popup } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import {openLoginModal, performLogout} from '../actions/action_login';
+
+import {openLoginModal, performLogout, getUser} from '../actions/action_login';
 import {addStarterPack, addEthLoanPack} from '../actions/action_add_user_pack';
+
 
 import {Router} from '../routes';
 
+const style = {
+  background: 'gray',
+  color: 'white',
+  padding: '1em',
+  borderRadius: '6px'
+}
+
 class Header extends Component {
 
+  
+
+  componentDidMount() {
+    const {dispatch} = this.props;
+    dispatch(getUser());
+  }
 
   onLogClick = () => {
     const { login, dispatch } = this.props
@@ -42,7 +57,7 @@ class Header extends Component {
     if(!!login.user.uid) {
       if(userPacks.ethLoan) {
         //Router.push(`/eth_loan_pack/${login.user.uid}`)
-        Router.push(`/eth_loan_pack`)
+        //Router.push(`/eth_loan_pack`)
       } else {
         console.log("You dont have access to eth_loan_pack")
       }
@@ -105,7 +120,19 @@ class Header extends Component {
             <Container>
               <Menu.Item onClick = {this.goHome} as='a' active = {currentPage.homepage}> Home </Menu.Item>
               <Menu.Item onClick = {this.goStarterPack} as='a' active = {currentPage.starterPackPage}>Starter Pack</Menu.Item>
-              <Menu.Item onClick = {this.goLoanPack} as='a'  active = {currentPage.ethLoanPackPage}>Eth Loan</Menu.Item>
+              <Popup
+                trigger={
+                  <Menu.Item onClick = {this.goLoanPack} as='a'  active = {currentPage.ethLoanPackPage}>ETH Loan</Menu.Item>
+                }
+                on='click'
+                content="Coming soon!"
+                className = 'comingsoon'
+                style = {style}
+                hideOnScroll
+                position = 'bottom right'
+              />
+              
+              
               {this.renderLogButton()}
               
             </Container>

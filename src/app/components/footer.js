@@ -23,6 +23,11 @@ class Footer extends Component {
                               Contact us
                         </Link>
                       </List.Item>
+                      <List.Item>
+                        <Link route={`/webinars`}>
+                              Webinars
+                        </Link>
+                      </List.Item>
                     </List>
                   </Grid.Column>
                   <Grid.Column width={3}>
