@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
 import Head from 'next/head'
-import { Container } from 'semantic-ui-react';
+import { Container} from 'semantic-ui-react';
 import Favicon from 'react-favicon';
-import Footer from './footer';
 
-
-
-class Layout extends Component {
+class StoreLayout extends Component {
 
     render() {
         return (
@@ -18,13 +15,11 @@ class Layout extends Component {
                         href="/static/dist/semantic.min.css"
                     />
                 </Head>
-                
                 {this.props.children}
-                <Footer />
             </Container>
         );
     }
 }
 
-export default Layout;
+export default StoreLayout;
 

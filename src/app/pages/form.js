@@ -17,7 +17,7 @@ class Form extends Component {
             <div style={{ padding: 15 }}>
                 <Container>
                 <div id="SOIDIV_ThomasMiller" data-so-page="ThomasMiller" data-height="550" data-style="border: 1px solid #d8d8d8; min-width: 290px; max-width: 900px;" data-psz="00"></div>
-<script type="text/javascript" src="https://cdn.scheduleonce.com/mergedjs/so.js"></script>
+                    <script type="text/javascript" src="https://cdn.scheduleonce.com/mergedjs/so.js"></script>
                 </Container>
             </div>
         )

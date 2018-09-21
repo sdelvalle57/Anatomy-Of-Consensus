@@ -3,10 +3,13 @@
 *******************************/
 .ui.container.parent {
     width: 100% !important;
+    background: #1b1c1d;
+    min-height: 100vh;
 }
 
 .ui.container.parenthome {
     width: 100%;
+    
 }
 
 .ui.container.home > p {

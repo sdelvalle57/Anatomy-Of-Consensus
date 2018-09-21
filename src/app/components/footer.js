@@ -5,7 +5,7 @@ import { Link } from '../routes';
 class Footer extends Component {
     render() {
         return(
-            <Segment inverted vertical >
+            <Segment inverted vertical className='footer' >
             <Container>
               <Grid divided inverted stackable>
                 <Grid.Row>

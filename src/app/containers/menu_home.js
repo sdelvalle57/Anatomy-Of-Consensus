@@ -106,8 +106,6 @@ class Header extends Component {
               <Menu.Item onClick = {this.goHome} as='a' active = {currentPage.homepage}> Home </Menu.Item>
               <Menu.Item onClick = {this.goStarterPack} as='a' active = {currentPage.starterPackPage}>Starter Pack</Menu.Item>
               <Menu.Item onClick = {this.goLoanPack} as='a'  active = {currentPage.ethLoanPackPage}>Eth Loan</Menu.Item>
-              <Menu.Item onClick = {this.addStarterPack} as='a'>Add Starter Pack</Menu.Item>
-              <Menu.Item onClick = {this.addLoanPack} as='a'>Add Loan Pack</Menu.Item>
               {this.renderLogButton()}
               
             </Container>
