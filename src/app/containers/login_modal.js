@@ -23,7 +23,7 @@ class LoginModal extends Component {
     render() {
         const {login} = this.props;
         return (
-            <Modal size='small' open={login.showModal} onClose={this.closeModal} >
+            <Modal className='login' size='small' open={login.showModal} onClose={this.closeModal} >
                 <Header icon='sign-in' content='Log-in or Sign-up to your account' />
                 
                 <Modal.Actions>

@@ -3,10 +3,13 @@
 *******************************/
 .ui.container.parent {
     width: 100% !important;
+    background: #1b1c1d;
+    min-height: 100vh;
 }
 
 .ui.container.parenthome {
     width: 100%;
+    
 }
 
 .ui.container.home > p {
@@ -29,4 +32,12 @@
 
 .ui.container.embedVideo {
     padding: 4em;
+    color: white;
+    text-align: center;
+}
+
+.ui.container.watch {
+    font-size: 25px;
+    margin: 2em 0 1em 0;
+    line-height: 1.3;
 }

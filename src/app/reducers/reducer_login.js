@@ -5,7 +5,7 @@ const initialState = {
     user: {
         uid: ''
     },
-    loading: true
+    loading: true,
 }
 
 export default function(state = initialState, action) {

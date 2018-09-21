@@ -1,22 +1,20 @@
 import React, {Component} from 'react';
-import {Button, Container, Divider, Grid, Header, Icon, List, Segment} from 'semantic-ui-react';
+import {Button, Container, Divider, Icon, Segment} from 'semantic-ui-react';
 import { Link } from '../routes';
 
 
-class HomeAbout extends Component {
+class VisionContent extends Component {
     render() {
         return(
             <div>
 
           <Segment className='purpose' vertical>
             <Container className='home'> 
-
               <p >
                 If you too would like a purposeful life, being the change you want 
                 to see in the world and powerfully moving society to 
                 <strong> The Third Industrial Revolution</strong>
               </p>
-
               <p><strong>
                 You can request a FREE Consultation below to discover exactly 
                 how you can help achieve this.</strong>
@@ -65,4 +63,4 @@ class HomeAbout extends Component {
     }
 }
 
-export default HomeAbout;
+export default VisionContent;

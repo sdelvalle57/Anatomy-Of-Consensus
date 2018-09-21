@@ -37,6 +37,7 @@
     "redux-form-website-template": "0.0.123",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.1.0",
+    "semantic-ui": "^2.3.3",
     "semantic-ui-react": "^0.82.3"
   },
   "license": "ISC",
@@ -48,6 +49,6 @@
     "firebase-tools": "3.18.4",
     "prettier": "1.12.1",
     "rimraf": "2.6.2",
-    "semantic-ui": "^2.4.0"
+    "semantic-ui": "^2.3.3"
   }
 }

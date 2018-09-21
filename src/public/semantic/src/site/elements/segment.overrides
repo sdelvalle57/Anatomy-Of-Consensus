@@ -8,11 +8,20 @@
 }
 
 .ui.vertical.segment.purpose {
-    padding-bottom: 6em;
+    margin-bottom: 15em;
     text-align: center;
+    background: white;
+    padding-top: 10em;
 }
 
 .ui.inverted.segment.getstarted {
     min-height: 80vh;
     margin-bottom: 6em;
+}
+
+.ui.inverted.vertical.segment.footer {
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
 }
