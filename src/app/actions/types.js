@@ -14,5 +14,4 @@ export const SIGN_OUT = 'SIGN_OUT';
 export const HOME_PAGE = 'HOME_PAGE';
 export const STARTER_PACK_PAGE = 'STARTER_PACK_PAGE';
 export const ETH_LOAN_PACK_PAGE = 'ETH_LOAN_PACK_PAGE';
-export const VISION_PAGE = 'VISION_PAGE';
 

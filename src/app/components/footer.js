@@ -15,17 +15,17 @@ class Footer extends Component {
                     <List link inverted>
                       <List.Item>
                         <Link route={`/about_us`}>
-                              About us
+                              <a>About us</a>
                         </Link>
                       </List.Item>
                       <List.Item>
                         <Link route={`/contact_us`}>
-                              Contact us
+                          <a>Contact us</a>
                         </Link>
                       </List.Item>
                       <List.Item>
                         <Link route={`/webinars`}>
-                              Webinars
+                          <a>Webinars</a>
                         </Link>
                       </List.Item>
                     </List>
@@ -35,12 +35,12 @@ class Footer extends Component {
                     <List link inverted>
                       <List.Item>
                         <Link route={`/faq`}>
-                            FAQ
+                          <a>FAQ</a>
                         </Link>
                       </List.Item>
                       <List.Item>
                         <Link route={`/how_to_buy_ether`}>
-                              How To Buy Ether
+                          <a>How To Buy Ether</a>
                         </Link>
                       </List.Item>
                     </List>

@@ -41,3 +41,14 @@
     margin: 2em 0 1em 0;
     line-height: 1.3;
 }
+
+.ui.container.form {
+    padding: 8em 0em 12em 0em;
+}
+
+.ui.container.page {
+    padding: 4em;
+    color: white;
+    text-align: center;
+    height: 60vh;
+}

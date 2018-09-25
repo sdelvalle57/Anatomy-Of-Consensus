@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import {openLoginModal, performLogout, getUser} from '../actions/action_login';
 import {addStarterPack, addEthLoanPack} from '../actions/action_add_user_pack';
+import {HOME_PAGE, STARTER_PACK_PAGE} from '../actions/types';
 
 
 import {Router} from '../routes';
@@ -92,6 +93,11 @@ class Header extends Component {
     }
   }
 
+  checkCurrent = (page) => {
+    console.log(page);
+    return true;
+  }
+
   renderLogButton() {
     const { fixedMenu, login } = this.props
     const fixed = fixedMenu.fixed;
@@ -109,7 +115,7 @@ class Header extends Component {
     const { fixedMenu, login, currentPage } = this.props
     const fixed = fixedMenu.fixed;
     const disabled = login.loading || login.user.uid=='';
-
+    console.log("currentpage", currentPage.currentPage + ' '+HOME_PAGE);
       return (
         <Menu
           fixed={fixed ? 'top' : null}
@@ -118,11 +124,24 @@ class Header extends Component {
           secondary={!fixed}
           size='large'>
             <Container>
-              <Menu.Item onClick = {this.goHome} as='a' active = {currentPage.homepage}> Home </Menu.Item>
-              <Menu.Item onClick = {this.goStarterPack} as='a' active = {currentPage.starterPackPage}>Starter Pack</Menu.Item>
+
+              <Menu.Item 
+                onClick = {this.goHome} 
+                as='a' 
+                active = {currentPage.currentPage==HOME_PAGE}> 
+                Home 
+              </Menu.Item>
+
+              <Menu.Item 
+                onClick = {this.goStarterPack} 
+                as='a' 
+                active = {currentPage.currentPage==STARTER_PACK_PAGE}>
+                Starter Pack
+              </Menu.Item>
+
               <Popup
                 trigger={
-                  <Menu.Item onClick = {this.goLoanPack} as='a'  active = {currentPage.ethLoanPackPage}>ETH Loan</Menu.Item>
+                  <Menu.Item onClick = {this.goLoanPack} as='a'>ETH Loan</Menu.Item>
                 }
                 on='click'
                 content="Coming soon!"

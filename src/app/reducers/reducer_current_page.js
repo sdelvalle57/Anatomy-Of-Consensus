@@ -1,4 +1,4 @@
-import {HOME_PAGE, STARTER_PACK_PAGE, ETH_LOAN_PACK_PAGE, VISION_PAGE} from '../actions/types';
+import {HOME_PAGE, STARTER_PACK_PAGE, ETH_LOAN_PACK_PAGE} from '../actions/types';
 
 
 const initialState = {
@@ -20,11 +20,6 @@ export default function(state= initialState, action) {
             return {
                 ...state,
                 currentPage: ETH_LOAN_PACK_PAGE
-            }
-        case VISION_PAGE:
-            return {
-                ...state,
-                currentPage: VISION_PAGE
             }
         default: return state;
     }

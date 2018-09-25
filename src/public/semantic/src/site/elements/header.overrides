@@ -14,3 +14,16 @@ h1.ui.inverted.header.homebig {
     font-weight: 500;
     margin-top: 1.5em;
   }
+
+  h1.ui.inverted.header.wowbig {
+    font-size: 4em;
+    font-weight: 500;
+    margin-bottom: 0px;
+  }
+
+  h1.ui.inverted.header.wowbig_content {
+    font-size: 4em;
+    font-weight: 500;
+    margin-bottom: 0px;
+    color: black;
+  }

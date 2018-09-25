@@ -1,20 +1,14 @@
 import React, {Component} from 'react';
-import {Container, Embed, Visibility} from 'semantic-ui-react';
+import {Container, Embed} from 'semantic-ui-react';
 import {connect} from 'react-redux'
 
 import VisionContent from '../components/vision_content';
 import PageLayout from '../containers/page_layout';
 import MenuVisibility from '../containers/menu_visibility';
 
-import {switchToPage} from '../actions/action_current_page';
-import {VISION_PAGE} from '../actions/types';
+
 
 class VisionPage extends Component {
-
-    static getInitialProps({reduxStore}) {
-        reduxStore.dispatch(switchToPage(VISION_PAGE));
-        return {};
-    }
 
     render() {
         return(

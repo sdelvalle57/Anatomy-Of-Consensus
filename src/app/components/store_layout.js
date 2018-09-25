@@ -12,8 +12,7 @@ class StoreLayout extends Component {
                 <Head>
                     <link 
                         rel="stylesheet" 
-                        href="/static/dist/semantic.min.css"
-                    />
+                        href="/static/dist/semantic.min.css" />
                 </Head>
                 {this.props.children}
             </Container>
