@@ -12,8 +12,11 @@ class StoreLayout extends Component {
                 <Head>
                     <link 
                         rel="stylesheet" 
-                        href="/semantic/dist/semantic.min.css"
-                    />
+                        href="/static/dist/semantic.min.css" />
+                    <script 
+                        type="text/javascript" 
+                        src="https://cdn.scheduleonce.com/mergedjs/so.js" />
+
                 </Head>
                 {this.props.children}
             </Container>
