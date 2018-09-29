@@ -1,4 +1,24 @@
 import firebase from 'firebase';
+
+  var config = {
+    apiKey: "AIzaSyDZHsdI5A5x_f75m4MgYZCO7WRft03IkNw",
+    authDomain: "diary-e8b5f.firebaseapp.com",
+    databaseURL: "https://diary-e8b5f.firebaseio.com",
+    projectId: "diary-e8b5f",
+    storageBucket: "diary-e8b5f.appspot.com",
+    messagingSenderId: "321003594246"
+};
+  if(!firebase.apps.length) firebase.initializeApp(config);
+  
+
+export const database = firebase.database().ref('/users_packs');
+export const auth = firebase.auth();
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+export const facebookProvider = new firebase.auth.FacebookAuthProvider();
+export const twitterProvider = new firebase.auth.TwitterAuthProvider();
+export const githubProvider = new firebase.auth.GithubAuthProvider();
+  
+  
 //import 'firebase/firebase-auth';
 //import 'firebase/firebase-database';
 
@@ -24,22 +44,3 @@ import firebase from 'firebase';
   };
   firebase.initializeApp(config);
 */
-  var config = {
-    apiKey: "AIzaSyDZHsdI5A5x_f75m4MgYZCO7WRft03IkNw",
-    authDomain: "diary-e8b5f.firebaseapp.com",
-    databaseURL: "https://diary-e8b5f.firebaseio.com",
-    projectId: "diary-e8b5f",
-    storageBucket: "diary-e8b5f.appspot.com",
-    messagingSenderId: "321003594246"
-};
-  if(!firebase.apps.length) firebase.initializeApp(config);
-  
-
-export const database = firebase.database().ref('/users_packs');
-export const auth = firebase.auth();
-export const googleProvider = new firebase.auth.GoogleAuthProvider();
-export const facebookProvider = new firebase.auth.FacebookAuthProvider();
-export const twitterProvider = new firebase.auth.TwitterAuthProvider();
-export const githubProvider = new firebase.auth.GithubAuthProvider();
-  
-  

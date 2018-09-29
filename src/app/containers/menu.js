@@ -1,13 +1,13 @@
 import React, {Component } from 'react';
 import { Menu, Container, Button, Popup } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import Router from 'next/router';
 
 import {openLoginModal, performLogout, getUser} from '../actions/action_login';
 import {addStarterPack, addEthLoanPack} from '../actions/action_add_user_pack';
 import {HOME_PAGE, STARTER_PACK_PAGE} from '../actions/types';
 
 
-import {Router} from '../routes';
 
 const style = {
   background: 'gray',
@@ -43,6 +43,7 @@ class Header extends Component {
     const { login, userPacks } = this.props
     if(!!login.user.uid) {
       if(userPacks.blockchainStarterPack) {
+        
         //Router.push(`/starter_pack/${login.user.uid}`)
         Router.push(`/starter_pack`)
       } else {

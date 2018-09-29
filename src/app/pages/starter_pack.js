@@ -6,23 +6,20 @@ import PageLayout from '../containers/page_layout';
 import MenuVisibility from '../containers/menu_visibility';
 import StarterPackContent from '../components/starter_pack_content';
 
-import {switchToPage} from '../actions/action_current_page';
+import {validateUser} from '../actions/action_login';
+import {changeName, changePageName, switchTo} from '../actions/action_pager_admin';
 import {STARTER_PACK_PAGE} from '../actions/types';
 
-import { Router } from '../routes';
 
 class StarterPack extends Component {
 
-    static getInitialProps({reduxStore}) {
-        reduxStore.dispatch(switchToPage(STARTER_PACK_PAGE));
-        return {};
-    }
+    static async getInitialProps(ctx) {
+        const {reduxStore} = ctx;
+        reduxStore.dispatch(validateUser(ctx));
+        reduxStore.dispatch(changePageName(STARTER_PACK_PAGE));
+        return {}
+    } 
 
-    componentWillReceiveProps({login}) {
-        if(!login.user.uid) {
-            Router.pushRoute('/');
-        }
-    }
 
     render() {
         return(
