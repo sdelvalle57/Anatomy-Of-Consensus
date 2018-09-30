@@ -1,8 +1,8 @@
 import React, {Component } from 'react';
 import { Menu, Container, Button, Popup } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import Router from 'next/router';
 
+import {changePageName, switchTo} from '../actions/action_pager_admin';
 import {openLoginModal, performLogout, getUser} from '../actions/action_login';
 import {addStarterPack, addEthLoanPack} from '../actions/action_add_user_pack';
 import {HOME_PAGE, STARTER_PACK_PAGE} from '../actions/types';
@@ -26,7 +26,7 @@ class Header extends Component {
   }
 
   onLogClick = () => {
-    const { login, dispatch } = this.props
+    const { login, dispatch } = this.props;
     
     if(!!login.user.uid) {
       dispatch(performLogout());
@@ -36,16 +36,18 @@ class Header extends Component {
   }
 
   goHome = () => {
-    Router.push(`/index`)
+    const {dispatch} = this.props;
+    dispatch(switchTo('/index'));
   }
 
   goStarterPack = () => {
-    const { login, userPacks } = this.props
+    const { login, userPacks, dispatch } = this.props
     if(!!login.user.uid) {
       if(userPacks.blockchainStarterPack) {
         
         //Router.push(`/starter_pack/${login.user.uid}`)
-        Router.push(`/starter_pack`)
+        dispatch(switchTo('/starter_pack'));
+        
       } else {
         console.log("You dont have access to blockchainStarterPack")
       }
@@ -58,6 +60,8 @@ class Header extends Component {
     const { login, userPacks } = this.props
     if(!!login.user.uid) {
       if(userPacks.ethLoan) {
+        
+        //dispatch(switchTo('/eth_loan_pack'));
         //Router.push(`/eth_loan_pack/${login.user.uid}`)
         //Router.push(`/eth_loan_pack`)
       } else {

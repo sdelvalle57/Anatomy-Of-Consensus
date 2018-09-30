@@ -1,9 +1,8 @@
 import {ADD_PACKS} from './types';
-import {database} from '../lib/firebase_config';
+import {database} from '../credentials/client';
 
 export const readUserPack = (uid) => dispatch => {    
     return database.on('value', snapshot => {
-        console.log("read_user", snapshot.val())
         if(typeof snapshot.val()[uid] != 'undefined'){
             dispatch({
                 type: ADD_PACKS,

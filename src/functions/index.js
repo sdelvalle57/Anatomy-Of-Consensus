@@ -8,12 +8,5 @@ const handle = routes.getRequestHandler(app)
 
 exports.next = functions.https.onRequest((req, res) => {
   console.log('File: ' + req.originalUrl) // log the page.js file that is being requested
-  return app.prepare().then(() => handle(req, res));
+  return app.prepare().then(() =>  handle(req, res));
 })
-
-/*
-createServer(handler).listen(port, (err) => {
-      if (err) throw err;
-      console.log(`>Server Ready on http://localhost:${port}`);
-    })
-    */

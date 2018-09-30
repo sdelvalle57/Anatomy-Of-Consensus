@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Segment, Container, List, Grid, Header} from 'semantic-ui-react';
-import Link from 'next/link';
+import {Link} from '../routes';
 
 class Footer extends Component {
     render() {
@@ -14,17 +14,17 @@ class Footer extends Component {
                     
                     <List link inverted>
                       <List.Item>
-                        <Link href={`/about_us`}>
+                        <Link route='about_us'>
                               <a>About us</a>
                         </Link>
                       </List.Item>
                       <List.Item>
-                        <Link href={`/contact_us`}>
+                        <Link route='contact_us'>
                           <a>Contact us</a>
                         </Link>
                       </List.Item>
                       <List.Item>
-                        <Link href={`/webinars`}>
+                        <Link route='webinars'>
                           <a>Webinars</a>
                         </Link>
                       </List.Item>
@@ -34,12 +34,12 @@ class Footer extends Component {
                     <Header inverted as='h4' content='Services' />
                     <List link inverted>
                       <List.Item>
-                        <Link href={`/faq`}>
+                        <Link route='faq'>
                           <a>FAQ</a>
                         </Link>
                       </List.Item>
                       <List.Item>
-                        <Link href={`/how_to_buy_ether`}>
+                        <Link route='how_to_buy_ether'>
                           <a>How To Buy Ether</a>
                         </Link>
                       </List.Item>

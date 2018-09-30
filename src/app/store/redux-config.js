@@ -27,6 +27,8 @@ export default (App) => {
 
       // Provide the store to getInitialProps of pages
       appContext.ctx.reduxStore = reduxStore
+      //appContext.ctx.newShit = "is the shit";
+      console.log("ctz", appContext.ctx);
 
       let appProps = {}
       if (typeof App.getInitialProps === 'function') {

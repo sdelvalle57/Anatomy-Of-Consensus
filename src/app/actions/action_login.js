@@ -1,4 +1,4 @@
-import {auth} from '../lib/firebase_config';
+import {auth} from '../credentials/client';
 //import * as admin from 'firebase-admin';
 import {OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, GET_USER_LOGIN, 
     USER_NOT_LOGGED, SIGN_IN, SIGN_OUT, REMOVE_PACKS} from './types';
@@ -60,7 +60,6 @@ export const validateUser = (ctx) => dispatch => {
                 res.writeHead(302, {Location: '/index'});
                 res.end();
         } else {
-            console.log("aca")
             auth().verifyIdToken(reduxState.login.user.uid).then( (decodedToken) => {
                 var uid = decodedToken.uid;
                 console.log('uid', uid);

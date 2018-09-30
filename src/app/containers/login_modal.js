@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Modal, Icon, Button, Header} from 'semantic-ui-react';
 import {connect} from 'react-redux';
 import {closeLoginModal, socialSignin} from '../actions/action_login';
-import {googleProvider, facebookProvider, githubProvider} from '../lib/firebase_config';
+import {googleProvider, facebookProvider, githubProvider} from '../credentials/client';
 
 
 
