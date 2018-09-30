@@ -43,30 +43,15 @@ export const getUser = () => dispatch => {
                 type: USER_NOT_LOGGED
             })
         } else {
-            dispatch({
-                type: GET_USER_LOGIN,
-                payload: user
-            });
-            dispatch(readUserPack(user.uid));
+            return user.getIdToken().then((token) => {
+                user.sessionToken = token;
+                dispatch({
+                    type: GET_USER_LOGIN,
+                    payload: user
+                });
+                dispatch(readUserPack(user.uid));       
+            })
+            
         }
     })
-}
-
-export const validateUser = (ctx) => dispatch => {
-    const {res, reduxStore, query} = ctx;
-    const reduxState = reduxStore.getState();
-    if (res) {
-        if(!reduxState.login || reduxState.login.user.uid == ''){
-                res.writeHead(302, {Location: '/index'});
-                res.end();
-        } else {
-            auth().verifyIdToken(reduxState.login.user.uid).then( (decodedToken) => {
-                var uid = decodedToken.uid;
-                console.log('uid', uid);
-            // ...
-            }).catch(function(error) {
-            // Handle error
-            });
-        }
-    }
 }

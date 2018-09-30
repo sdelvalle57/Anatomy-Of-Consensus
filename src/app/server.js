@@ -12,6 +12,22 @@ app.prepare().then(() => {
         handle(req, res)
     })
 
+    server.on('request', (request, response) => {
+        const { method, url, headers } = request;
+        let body = [];
+        request.on('error', (err) => {
+            console.error(err);
+        }).on('data', (chunk) => {
+            console.log(chunk);
+            body.push(chunk);
+        }).on('end', () => {
+            body = Buffer.concat(body).toString();
+        
+            // At this point, we have the headers, method, url and body, and can now
+            // do whatever we need to in order to respond to this request.
+        });
+      });
+
     server.listen(port, (err) => {
         if (err) throw err
         console.log(`> Ready on http://localhost:${port}`)

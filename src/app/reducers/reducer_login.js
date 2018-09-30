@@ -2,9 +2,7 @@ import {OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, GET_USER_LOGIN, USER_NOT_LOGGED} fr
 
 const initialState = {
     showModal: false,
-    user: {
-        uid: ''
-    },
+    user: '',
     loading: true,
 }
 
@@ -29,9 +27,7 @@ export default function(state = initialState, action) {
         case USER_NOT_LOGGED:
             return {
                 ...state,
-                user: {
-                    uid:''
-                },
+                user: '',
                 loading: false
             };
 

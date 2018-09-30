@@ -120,7 +120,6 @@ class Header extends Component {
     const { fixedMenu, login, currentPage } = this.props
     const fixed = fixedMenu.fixed;
     const disabled = login.loading || login.user.uid=='';
-    console.log("currentpage", currentPage.currentPage + ' '+HOME_PAGE);
       return (
         <Menu
           fixed={fixed ? 'top' : null}

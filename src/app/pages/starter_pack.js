@@ -6,8 +6,7 @@ import PageLayout from '../containers/page_layout';
 import MenuVisibility from '../containers/menu_visibility';
 import StarterPackContent from '../components/starter_pack_content';
 
-import {validateUser} from '../actions/action_login';
-import {changeName, changePageName, switchTo} from '../actions/action_pager_admin';
+import {changePageName, switchTo} from '../actions/action_pager_admin';
 import {STARTER_PACK_PAGE} from '../actions/types';
 
 
@@ -15,11 +14,9 @@ class StarterPack extends Component {
 
     static async getInitialProps(ctx) {
         const {reduxStore} = ctx;
-        reduxStore.dispatch(validateUser(ctx));
         reduxStore.dispatch(changePageName(STARTER_PACK_PAGE));
         return {}
     } 
-
 
     render() {
         return(
