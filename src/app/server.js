@@ -11,7 +11,7 @@ app.prepare().then(() => {
     const server = createServer((req, res) => {
         handle(req, res)
     })
-
+/*
     server.on('request', (request, response) => {
         const { method, url, headers } = request;
         let body = [];
@@ -27,7 +27,7 @@ app.prepare().then(() => {
             // do whatever we need to in order to respond to this request.
         });
       });
-
+*/
     server.listen(port, (err) => {
         if (err) throw err
         console.log(`> Ready on http://localhost:${port}`)
