@@ -19,19 +19,16 @@ class Index extends Component {
 
   componentWillReceiveProps({getStarted, dispatch, login}) {
     if(getStarted.clicked && !!login.user.uid && !!login.user.sessionToken) {
-      console.log("login", login)
       dispatch(getStartedInitial());
       //`/lotteries/new/${factoryAddress}`
-      dispatch(switchTo(`/vision_page/${login.user.sessionToken}`));
+      dispatch(switchTo(`/vision_page`));
     }
   }
 
   onGetStarterClick = () => {
     const {dispatch, login} = this.props;
-    console.log("login", login)
-
     if(!!login.user.uid && !!login.user.sessionToken) {
-      dispatch(switchTo(`/vision_page/${login.user.sessionToken}`));
+      dispatch(switchTo(`/vision_page`));
     } else if(!login.loading) {
       dispatch(getStarterClicked());
       dispatch(openLoginModal());

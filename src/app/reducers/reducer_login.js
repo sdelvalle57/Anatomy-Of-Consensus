@@ -1,9 +1,12 @@
-import {OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, GET_USER_LOGIN, USER_NOT_LOGGED} from '../actions/types';
+import {OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, GET_USER_LOGIN, 
+    USER_NOT_LOGGED, CHECK_TOKEN} from '../actions/types';
 
 const initialState = {
     showModal: false,
     user: '',
     loading: true,
+    res: '',
+    signout: false
 }
 
 export default function(state = initialState, action) {
@@ -28,8 +31,14 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 user: '',
-                loading: false
+                loading: false,
+                res: ''
             };
+        case CHECK_TOKEN:
+            return {
+                ...state,
+                res: action.payload
+            }
 
         default: return state;
     }

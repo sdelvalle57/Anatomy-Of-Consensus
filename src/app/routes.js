@@ -1,8 +1,7 @@
 const routes = require('next-routes')();
 
 routes
-    .add('/vision_page', '/')
-    .add('/vision_page/:uid', 'vision_page')
+    .add('/vision_page', 'vision_page')
     //.add('starter_pack', '/starter_pack/:uid')
     //.add('eth_loan_pack', '/eth_loan_pack/:uid')
     //.add('form', '/form/:uid')

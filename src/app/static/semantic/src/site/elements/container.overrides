@@ -52,3 +52,7 @@
     text-align: center;
     height: 60vh;
 }
+
+.ui.container.login {
+    height: 100vh;
+}

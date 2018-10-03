@@ -7,7 +7,7 @@
     "rewrites": [
       {
         "source": "**/**",
-        "function": "app-next"
+        "function": "next"
       }
     ]
   },

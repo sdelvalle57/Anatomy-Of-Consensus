@@ -10,8 +10,8 @@ export const READ_USER = 'READ_USER';
 export const GET_USER_LOGIN = 'GET_USER_LOGIN';
 export const USER_NOT_LOGGED = 'USER_NOT_LOGGED';
 export const SIGN_IN = 'SIGN_IN';
-export const SIGN_OUT = 'SIGN_OUT';
 export const HOME_PAGE = 'HOME_PAGE';
 export const STARTER_PACK_PAGE = 'STARTER_PACK_PAGE';
 export const ETH_LOAN_PACK_PAGE = 'ETH_LOAN_PACK_PAGE';
+export const CHECK_TOKEN = 'CHECK_TOKEN';
 
