@@ -43,7 +43,7 @@ class VisionContent extends Component {
                 ***And if you are not willing to invest time and money into your business***
                 </strong></p>
 
-              <Link route={`/form`}>
+              <Link route='form'>
                 <a>
                   <Button primary size='huge' className='know_more' >
                     Reserve Your Free Consultation NOW!

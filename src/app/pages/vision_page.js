@@ -6,9 +6,14 @@ import VisionContent from '../components/vision_content';
 import PageLayout from '../containers/page_layout';
 import MenuVisibility from '../containers/menu_visibility';
 
-
+import {checkSession} from '../actions/action_login';
 
 class VisionPage extends Component {
+
+    static getInitialProps({reduxStore, req, res}) {
+        reduxStore.dispatch(checkSession(req, res));
+        return {}  
+    }
 
     render() {
         return(

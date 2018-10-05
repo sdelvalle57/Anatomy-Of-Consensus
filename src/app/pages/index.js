@@ -4,31 +4,31 @@ import { connect } from 'react-redux';
 
 import {openLoginModal} from '../actions/action_login';
 import {getStarterClicked, getStartedInitial} from '../actions/action_get_started';
-import {switchToPage} from '../actions/action_current_page';
+import {changePageName, switchTo} from '../actions/action_pager_admin';
 import {HOME_PAGE} from '../actions/types';
 
 import PageLayout from '../containers/page_layout';
 
-import { Router } from '../routes';
 
 class Index extends Component {
 
   static getInitialProps({reduxStore}) {
-    reduxStore.dispatch(switchToPage(HOME_PAGE));
+    reduxStore.dispatch(changePageName(HOME_PAGE));
     return {};
   }
 
   componentWillReceiveProps({getStarted, dispatch, login}) {
-    if(getStarted.clicked && !!login.user.uid) {
+    if(getStarted.clicked && !!login.user.uid && !!login.user.sessionToken) {
       dispatch(getStartedInitial());
-      Router.pushRoute('/vision_page');
+      //`/lotteries/new/${factoryAddress}`
+      dispatch(switchTo(`/vision_page`));
     }
   }
 
   onGetStarterClick = () => {
     const {dispatch, login} = this.props;
-    if(!!login.user.uid) {
-      Router.pushRoute('/vision_page');
+    if(!!login.user.uid && !!login.user.sessionToken) {
+      dispatch(switchTo(`/vision_page`));
     } else if(!login.loading) {
       dispatch(getStarterClicked());
       dispatch(openLoginModal());

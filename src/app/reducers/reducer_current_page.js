@@ -6,7 +6,6 @@ const initialState = {
 }
 
 export default function(state= initialState, action) {
-    console.log("red", action.type);
     switch (action.type) {
        
         case HOME_PAGE:

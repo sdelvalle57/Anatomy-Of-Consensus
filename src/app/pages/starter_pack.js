@@ -6,22 +6,14 @@ import PageLayout from '../containers/page_layout';
 import MenuVisibility from '../containers/menu_visibility';
 import StarterPackContent from '../components/starter_pack_content';
 
-import {switchToPage} from '../actions/action_current_page';
-import {STARTER_PACK_PAGE} from '../actions/types';
+import { checkSession } from '../actions/action_login';
 
-import { Router } from '../routes';
 
 class StarterPack extends Component {
 
-    static getInitialProps({reduxStore}) {
-        reduxStore.dispatch(switchToPage(STARTER_PACK_PAGE));
-        return {};
-    }
-
-    componentWillReceiveProps({login}) {
-        if(!login.user.uid) {
-            Router.pushRoute('/');
-        }
+    static getInitialProps({reduxStore, req, res}) {
+        reduxStore.dispatch(checkSession(req, res));
+        return {}  
     }
 
     render() {

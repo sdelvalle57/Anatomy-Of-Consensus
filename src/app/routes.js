@@ -1,8 +1,15 @@
 const routes = require('next-routes')();
 
 routes
-    .add('./', '/index')
-    .add('/starter_pack/:uid', '/starter_pack')
-    .add('/eth_loan_pack/:uid', '/eth_loan_pack')
+    .add('/vision_page', 'vision_page')
+    //.add('starter_pack', '/starter_pack/:uid')
+    //.add('eth_loan_pack', '/eth_loan_pack/:uid')
+    //.add('form', '/form/:uid')
+    //.add('wow', '/wow/:uid')
+    .add('about_us')
+    .add('contact_us')
+    .add('faq')
+    .add('how_to_buy_ether')
+    .add('webinars')
 
 module.exports = routes;

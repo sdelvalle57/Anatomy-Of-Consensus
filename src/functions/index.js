@@ -1,11 +1,15 @@
 const functions = require('firebase-functions')
-const next = require('next')
+const next = require('next');
+const routes = require('./routes');
 
-var dev = process.env.NODE_ENV !== 'production'
-var app = next({ dev, conf: { distDir: 'next' } })
-var handle = app.getRequestHandler()
+const serverTools = require("./express_server");
 
-exports.next = functions.https.onRequest((req, res) => {
-  console.log('File: ' + req.originalUrl) // log the page.js file that is being requested
-  return app.prepare().then(() => handle(req, res))
-})
+const dev = process.env.NODE_ENV !== 'production'
+const nextApp = next({ dev, conf: { distDir: 'next' } })
+const handle = routes.getRequestHandler(nextApp)
+const server = serverTools.configServer(handle);  
+
+exports.next = functions.https.onRequest(async (req, res) => {
+  await nextApp.prepare();
+  return server(req, res);
+});
