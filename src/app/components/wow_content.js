@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Segment, Header} from 'semantic-ui-react';
+import {Segment, Header, Grid} from 'semantic-ui-react';
 
 class WOWContent extends Component {
     render() {

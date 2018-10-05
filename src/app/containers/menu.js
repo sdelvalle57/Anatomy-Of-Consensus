@@ -18,8 +18,6 @@ const style = {
 
 class Header extends Component {
 
-  
-
   componentDidMount() {
     const {dispatch} = this.props;
     dispatch(getUser());
@@ -30,6 +28,7 @@ class Header extends Component {
     
     if(!!login.user.uid) {
       dispatch(performLogout());
+      this.goHome();
     } else {
       dispatch(openLoginModal());
     }

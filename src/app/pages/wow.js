@@ -5,8 +5,14 @@ import {Container, Embed, Header} from 'semantic-ui-react';
 import PageLayout from '../containers/page_layout';
 import MenuVisibility from '../containers/menu_visibility';
 import WOWContent from '../components/wow_content';
+import { checkSession } from '../actions/action_login';
 
 class WOW extends Component {
+
+    static getInitialProps({reduxStore, req, res}) {
+        reduxStore.dispatch(checkSession(req, res));
+        return {}  
+    }
 
     render() {
         return(

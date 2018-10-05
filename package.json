@@ -14,9 +14,10 @@
     "copy-files": "npm run copy-semantic && npm run copy-images",
     "copy-semantic": "cpx \"src/app/static/semantic/dist/**/*\" \"dist/public/static/semantic/dist\" -C",
     "copy-images": "cpx \"src/app/static/images**/*.*\" \"dist/public/static\" -C",
-    "copy-func-files": "npm run copy-credentials && npm run copy-routes",
+    "copy-func-files": "npm run copy-credentials && npm run copy-routes && npm run copy-server",
     "copy-credentials": "cpx \"src/app/credentials**/*.*\" \"dist/functions\" -C",
     "copy-routes": "cpx \"src/app/routes.js\" \"dist/functions\" -C",
+    "copy-server": "cpx \"src/app/express_server.js\" \"dist/functions\" -C",
     "copy-deps": "cpx \"*{package.json,package-lock.json,yarn.lock}\" \"dist/functions\" -C",
     "install-deps": "cd \"dist/functions\" && npm i",
     "build-semantic": "cd src/app/static/semantic && gulp build-css build-assets"

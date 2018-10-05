@@ -6,42 +6,13 @@ import VisionContent from '../components/vision_content';
 import PageLayout from '../containers/page_layout';
 import MenuVisibility from '../containers/menu_visibility';
 
-import {switchTo} from '../actions/action_pager_admin';
+import {checkSession} from '../actions/action_login';
 
 class VisionPage extends Component {
 
     static getInitialProps({reduxStore, req, res}) {
-        //we check wether is a session cookie saved, if not
-        //then we go to check the url params /vision_page/:token
-        //see routes.js.
-        //If nothing was sent inside the params, express will
-        //redirect to index, see server.js
-        
-        //console.log('reduxStore', state);
-        const user = req && req.session ? req.session.decodedToken : null;
-        console.log(user);
-        //TODO: fetch from database
-        // don't fetch anything from firebase if the user is not found
-        //const snap = user && await req.firebaseServer.database().ref('messages').once('value')
-        if(user == null && req) {
-            res.redirect('/index');
-            res.end();
-        } else if(!req) {
-            const state = reduxStore.getState();
-            if(!state.login || !state.login.user || !state.login.user.uid
-                || !state.login.res || !state.login.res.data || 
-                !state.login.res.data.decodedToken){
-                    reduxStore.dispatch(switchTo('/index'));
-            }
-        }
+        reduxStore.dispatch(checkSession(req, res));
         return {}  
-      }
-
-    componentDidMount() {
-        const {dispatch} = this.props;
-        
-        //console.log('query', token);
-        //dispatch(validateUser(token));
     }
 
     render() {

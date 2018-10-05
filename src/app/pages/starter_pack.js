@@ -6,17 +6,15 @@ import PageLayout from '../containers/page_layout';
 import MenuVisibility from '../containers/menu_visibility';
 import StarterPackContent from '../components/starter_pack_content';
 
-import {changePageName, switchTo} from '../actions/action_pager_admin';
-import {STARTER_PACK_PAGE} from '../actions/types';
+import { checkSession } from '../actions/action_login';
 
 
 class StarterPack extends Component {
 
-    static async getInitialProps(ctx) {
-        const {reduxStore} = ctx;
-        reduxStore.dispatch(changePageName(STARTER_PACK_PAGE));
-        return {}
-    } 
+    static getInitialProps({reduxStore, req, res}) {
+        reduxStore.dispatch(checkSession(req, res));
+        return {}  
+    }
 
     render() {
         return(
