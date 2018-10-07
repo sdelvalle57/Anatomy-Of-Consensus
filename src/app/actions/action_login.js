@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {auth} from '../credentials/client';
 import {OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, GET_USER_DATA, 
-    USER_NOT_LOGGED, SIGN_IN, REMOVE_PACKS, SAVE_SESSION} from './types';
+    USER_NOT_LOGGED, SIGN_IN, REMOVE_PACKS} from './types';
 import {readUserPack} from './action_add_user_pack';
 import { switchTo } from './action_pager_admin';
 
@@ -67,19 +67,18 @@ export const checkSession = (req, res) => (dispatch, getState) => {
     // anymore in server side rendering to check redux state
     //if login state doesnt exist it goes back to index
     const user = req && req.session ? req.session.decodedToken : null;
-    if(user == null && req) {
-        res.redirect('/index');
-        res.end();
-        
-    } else if(!req) {
+    if(req) {
+        if(user == null){
+            res.redirect('/index');
+            res.end();
+        }
+    } else {
         //this should never happen, bcause session should be handling it,
         //however session not always will be null if user has already
         //signed out
         const state = getState();
-        if(!state.login || !state.login.user || !state.login.user.uid
-            || !state.login.res || !state.login.res.data || 
-            !state.login.res.data.decodedToken){
-                dispatch(switchTo('/index'));
+        if(!state.login || !state.login.user || !state.login.user.uid){
+            dispatch(switchTo('/index'));
         }
     }
 }
@@ -87,12 +86,9 @@ export const checkSession = (req, res) => (dispatch, getState) => {
 export const saveSession =  (token) => async dispatch => {
     //validates and saves login token in the express js server
     // server.js
-    const res = await axios.post('/api/login', {
+    await axios.post('/api/login', {
         userToken: token
     })
-    dispatch({
-        type: SAVE_SESSION,
-        payload: res
-    })
+
 
 }

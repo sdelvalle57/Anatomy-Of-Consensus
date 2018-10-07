@@ -1,11 +1,10 @@
 import {OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, GET_USER_DATA, 
-    USER_NOT_LOGGED, SAVE_SESSION} from '../actions/types';
+    USER_NOT_LOGGED} from '../actions/types';
 
 const initialState = {
     showModal: false,
     user: '',
     loading: true,
-    res: '',
     signout: false
 }
 
@@ -31,14 +30,9 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 user: '',
-                loading: false,
-                res: ''
+                loading: false
             };
-        case SAVE_SESSION:
-            return {
-                ...state,
-                res: action.payload
-            }
+        
 
         default: return state;
     }
