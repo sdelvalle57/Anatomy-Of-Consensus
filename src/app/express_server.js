@@ -1,9 +1,12 @@
 const express = require('express');
 const session = require('express-session');
+const FirebaseStore = require('connect-session-firebase')(session);
+
+
 const admin = require('firebase-admin');
+const helmet = require('helmet');
 
 const bodyParser = require('body-parser');
-const FileStore = require('session-file-store')(session);
 
 const serviceAccount = require('./credentials/server.json');
 
@@ -12,20 +15,31 @@ const firebase = admin.initializeApp({
     databaseURL: 'https://diary-e8b5f.firebaseio.com' 
   }, 'server');
 
+  const store = new FirebaseStore({  
+    database: firebase.database(),
+   });
+
 module.exports =  {
     configServer : function(handle){
         const server = express();
+        server.use(helmet());
+        server.set('trust proxy', 1);
         server.use(bodyParser.json());
-
-        server.use(session({
-            secret: 'anat_omy',
-            saveUninitialized: true,
-            store: new FileStore({path: '/tmp/sessions', secret: 'anat_omy'}),
+        server.use(bodyParser.urlencoded({ extended: true }));
+        server.use(
+        session({
+            store: store,
+            name: '__session',
+            secret: 'mysecret',
+            secure: true,
+            httpOnly: true,
             resave: false,
             rolling: true,
-            httpOnly: true,
-            cookie: { maxAge: 604800000 } // week
-        }))
+            cookie: { maxAge: 604800000 }, // week
+            saveUninitialized: false,
+            signed: true,
+        })
+        );
 
         server.use((req, res, next) => {
             req.firebaseServer = firebase;
@@ -41,6 +55,7 @@ module.exports =  {
             return decodedToken
             })
             .then((decodedToken) =>{
+                res.setHeader('Cache-Control', 'private');
                 res.json({ status: true, decodedToken })
             })
             .catch((error) =>{
