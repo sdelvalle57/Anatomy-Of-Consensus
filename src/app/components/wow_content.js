@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
-import {Segment, Header, Grid} from 'semantic-ui-react';
+import {Segment, Header, Grid, Embed, Container, Divider} from 'semantic-ui-react';
 
 class WOWContent extends Component {
     render() {
-        const videos = ['tlTKTTt47WE', 'J0KHiiTtt4w', '3CyN8rYdX6g', '09IqM6c3iT0', 'Q2x8fTTS4F8', 'ccQPesc7HFs']
+        const user1 = {
+            id: 'tlTKTTt47WE',
+            att: 'My name is Maradona, and I think this is an amazing course that everyone must take.'
+        } 
+        const user2 = {
+            id: '3CyN8rYdX6g',
+            att: 'My name is Axl, from now on we will start crowdfunding our own projects'
+        } 
+        const videos = [[user1, user2], [user1, user2], [user1, user2]]
         return(
             <div>
                 <Segment className='purpose' vertical>
@@ -13,25 +21,30 @@ class WOWContent extends Component {
                         content="Here's What Our Clients Have to Say" />
 
                     <Grid container stackable verticalAlign='middle'>
-                        <Grid.Row>
-                            <Grid.Column width={8}>
-                                <Header as='h3' style={{ fontSize: '2em' }}>
-                                We Help Companies and Companions
-                                </Header>
-                                <p style={{ fontSize: '1.33em' }}>
-                                We can give your company superpowers to do things that they never thought possible.
-                                Let us delight your customers and empower your needs... through pure data analytics.
-                                </p>
-                                <Header as='h3' style={{ fontSize: '2em' }}>
-                                We Make Bananas That Can Dance
-                                </Header>
-                                <p style={{ fontSize: '1.33em' }}>
-                                Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-                                bioengineered.
-                                </p>
-                            </Grid.Column>
+                        {videos.map((row) => {
+                            return (
+                                <Grid.Row  key={row}>
+                                    {row.map((user) => {
+                                        return(
+                                        <Grid.Column key={user} width={8}>
+                                            <Embed 
+                                                active={true}
+                                                id={user.id}
+                                                source='youtube'  />
+                                                <Container className = 'watch'>
+                                                   {user.att}
+                                                </Container>
+                                                <Divider />
+                                        </Grid.Column>
+
+                                        )
+                                    })}
+                                    
+                                    
+                                </Grid.Row>
+                            )
+                        })}
                         
-                        </Grid.Row>
                     </Grid>
                    
                 </Segment>

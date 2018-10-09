@@ -20,7 +20,7 @@ class WOW extends Component {
                 <MenuVisibility>
                     <Container className='embedVideo'>
 
-                        <Header className='wowbig'
+                        <Header className='wowbig_congrats'
                             as='h1' 
                             content='CONGRATULATIONS!'
                             inverted />

@@ -21,9 +21,16 @@ h1.ui.inverted.header.homebig {
     margin-bottom: 0px;
   }
 
-  h1.ui.inverted.header.wowbig_content {
+  h1.ui.inverted.header.wowbig_congrats {
     font-size: 4em;
     font-weight: 500;
     margin-bottom: 0px;
+    color: white;
+  }
+
+  h1.ui.header.wowbig {
+    font-size: 4em;
+    font-weight: 500;
+    margin-bottom: 1em;
     color: black;
   }
